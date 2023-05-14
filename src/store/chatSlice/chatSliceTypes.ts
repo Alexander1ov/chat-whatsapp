@@ -17,6 +17,8 @@ export interface ChatState {
   messages: Chat[];
   user: User;
   entrance: boolean;
+  newChat: boolean;
+  contacts:Array<string>
   loading: boolean;
   error: string | null;
 }

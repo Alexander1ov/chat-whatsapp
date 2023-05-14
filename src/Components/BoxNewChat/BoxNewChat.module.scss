@@ -1,5 +1,5 @@
 .newChat {
-  margin: 15px auto;
+  margin-top: 15px;
   padding: 15px;
   width: 90%;
   background: #222e35;
@@ -21,16 +21,4 @@
     background-color: #2a3942;
   }
 
-  button {
-    color: #ffffff5a;
-    border-radius: 6px;
-    background-color: #768d9721;
-    &:hover {
-      color: #fff;
-    }
-    &:active {
-      transform: scale(0.9);
-      transition: 0.1s;
-    }
-  }
 }

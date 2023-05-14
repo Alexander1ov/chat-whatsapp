@@ -1,8 +1,8 @@
 import React from "react";
+import { useAppSelector } from "./hooks/hooks";
+
 import Chat from "./Components/Chat/Chat";
 import Entrance from "./Components/Entrance/Entrance";
-import { useAppSelector } from "./hooks/hooks";
-import { log } from "console";
 import Users from "./Components/Users/Users";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="app">
       {/* {entrance && <Entrance />} */}
-      <Users/>
+      <Users />
       <Chat />
     </div>
   );

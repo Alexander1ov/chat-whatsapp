@@ -28,6 +28,8 @@ const initialState: ChatState = {
   messages: [],
   user: { IdInstance: "", ApiTokenInstance: "" },
   entrance: true,
+  newChat: false,
+  contacts: [],
   loading: false,
   error: null,
 };
@@ -46,6 +48,12 @@ const chatSlice = createSlice({
       console.log(action.payload);
       state.user = action.payload;
       state.entrance = false;
+    },
+    addChat(state) {
+      state.newChat = !state.newChat;
+    },
+    loginToChat(state, action: PayloadAction<string>) {
+      state.contacts.push(action.payload);
     },
     changeSearch(state, action: PayloadAction<string>) {
       //   state.searchValue = action.payload;
@@ -69,7 +77,7 @@ const chatSlice = createSlice({
   },
 });
 
-export const { handleEntrance, changeSearch } = chatSlice.actions;
+export const { handleEntrance, addChat, loginToChat, changeSearch } = chatSlice.actions;
 export default chatSlice.reducer;
 
 function isError(action: AnyAction) {

@@ -1,0 +1,21 @@
+.wrapper {
+    cursor: pointer;
+  padding-left: 10px;
+  height: 70px;
+  border-bottom: 1px solid #222d34;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &:hover{
+    background-color: #202c33;
+  }
+
+  img {
+    height: 35px;
+  }
+}
+.active{
+    background-color: #2a3942;
+  }
+

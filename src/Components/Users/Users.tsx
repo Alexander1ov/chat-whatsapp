@@ -1,24 +1,19 @@
-import React from "react";
+import React, { FC } from "react";
 
 import AVATAR from "../../img/avatar.png";
-import ARROW from "../../img/arrow.png";
 import styles from "./Users.module.scss";
+import Header from "../Header/Header";
+import BoxNewChat from "../BoxNewChat/BoxNewChat";
 
-const Users = () => {
+const Users: FC = () => {
   return (
     <section className={styles.section}>
-      <header className={styles["section-header"]}>
-        <div className={styles.user}>
-          <img src={AVATAR} alt="avatar" />
-          <p> Иван Иванов 8 923 234 2342</p>
-        </div>
-      </header>
-      <div className={styles.messages}></div>
-      <div className={styles["messages-new"]}>
-        <input type="text" placeholder="Введите сообщение" />
-        <button>
-          <img src={ARROW} alt="arrow" />
-        </button>
+      <Header>
+        <img src={AVATAR} alt="avatar" />
+        <p> Профиль</p>
+      </Header>
+      <div className={styles.wrapper}>
+        <BoxNewChat />
       </div>
     </section>
   );

@@ -1,0 +1,15 @@
+.header {
+  height: 50px;
+  color: #fff;
+  background-color: #202c33;
+}
+.user {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  img {
+    height: 35px;
+  }
+}

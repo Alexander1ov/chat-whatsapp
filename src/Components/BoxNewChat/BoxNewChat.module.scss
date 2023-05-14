@@ -1,0 +1,36 @@
+.newChat {
+  margin: 15px auto;
+  padding: 15px;
+  width: 90%;
+  background: #222e35;
+  border: 1px solid #2f3b43;
+  border-radius: 3px;
+  p {
+    margin: 0;
+    color: #dff3ed;
+    font-size: 12px;
+  }
+  input {
+    margin: 15px 0;
+    width: 100%;
+    outline: none;
+    padding: 9px 12px;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    background-color: #2a3942;
+  }
+
+  button {
+    color: #ffffff5a;
+    border-radius: 6px;
+    background-color: #768d9721;
+    &:hover {
+      color: #fff;
+    }
+    &:active {
+      transform: scale(0.9);
+      transition: 0.1s;
+    }
+  }
+}

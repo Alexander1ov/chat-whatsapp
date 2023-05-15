@@ -11,7 +11,6 @@ const Entrance = () => {
   const dispatch = useAppDispatch();
   const handleEntry = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e);
     dispatch(handleEntrance(user));
 
     setUser({ IdInstance: "", ApiTokenInstance: "" });

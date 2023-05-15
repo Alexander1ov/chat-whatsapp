@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .box {
   padding: 25px;
@@ -21,24 +22,24 @@
       color: #42cba5;
     }
   }
-}
-input {
-  width: 40%;
-  padding: 5px 15px;
-  margin: 15px;
-  border: 3px solid #42cba5;
-  border-radius: 5px;
-  background-color: #dff3ed;
-}
-button {
-  border: 3px solid #42cba5;
-  border-radius: 5px;
-  background-color: #dff3ed;
-  &:hover {
-    border: 3px solid #01120d8a;
-    transform: scale(0.95);
+  input {
+    width: 40%;
+    padding: 5px 15px;
+    margin: 15px;
+    border: 3px solid #42cba5;
+    border-radius: 5px;
+    background-color: #dff3ed;
   }
-  &:active {
-    color: #42cba5;
+  button {
+    border: 3px solid #42cba5;
+    border-radius: 5px;
+    background-color: #dff3ed;
+    &:hover {
+      border: 3px solid #01120d8a;
+      transform: scale(0.95);
+    }
+    &:active {
+      color: #42cba5;
+    }
   }
 }

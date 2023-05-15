@@ -45,7 +45,7 @@ const chatSlice = createSlice({
         ApiTokenInstance: string;
       }>
     ) {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.user = action.payload;
       state.entrance = false;
     },

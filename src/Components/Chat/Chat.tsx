@@ -1,24 +1,24 @@
 import React from "react";
+import { useAppSelector } from "../../hooks/hooks";
+
+import Header from "../Header/Header";
+import ChatBackground from "../ChatBackground/ChatBackground";
+import ChatFooter from "../ChatFooter/ChatFooter";
 
 import AVATAR from "../../img/avatar.png";
-import ARROW from "../../img/arrow.png";
 import styles from "./Chat.module.scss";
-import Header from "../Header/Header";
 
 const Chat = () => {
+  const { active } = useAppSelector((state) => state.messages);
+
   return (
     <section className={styles.section}>
       <Header>
         <img src={AVATAR} alt="avatar" />
-        <p> 8 923 234 ****</p>
+        <p> {!active ? "Нет активных чатов" : active}</p>
       </Header>
-      <div className={styles.messages}></div>
-      <div className={styles["messages-new"]}>
-        <input type="text" placeholder="Введите сообщение" />
-        <button>
-          <img src={ARROW} alt="arrow" />
-        </button>
-      </div>
+      <ChatBackground />
+      <ChatFooter active={active} />
     </section>
   );
 };

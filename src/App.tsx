@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="app">
-      {/* {entrance && <Entrance />} */}
+      {entrance && <Entrance />}
       <Users />
       <Chat />
     </div>

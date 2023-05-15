@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../../hooks/hooks";
 
-import { addChat, loginToChat } from "../../store/chatSlice/chatSlice";
+import { addChat } from "../../store/chatSlice/chatSlice";
+import { messagesChat } from "../../store/messages/messages.Slice";
 import MyButton from "../UI/MyButton/MyButton";
 
 import styles from "./BoxNewChat.module.scss";
@@ -11,7 +12,7 @@ const BoxNewChat = () => {
   const dispatch = useAppDispatch();
   const addNewChat = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(loginToChat(tel));
+    dispatch(messagesChat(tel));
     dispatch(addChat());
     setTel("");
   };
@@ -24,7 +25,7 @@ const BoxNewChat = () => {
           <input
             required
             type="tel"
-            placeholder="8 923 234 ****"
+            placeholder="7923234****"
             value={tel}
             onChange={(e) => {
               setTel(e.target.value);

@@ -14,10 +14,10 @@ const ChatBackground: FC = () => {
     <div className={styles.background}>
       <div className={styles.wrapper}>
         <div>
-          {messages[idx]?.message.text.map((elem, id) => {
-            const myMessage = messages[idx].message.my;
+          {messages[idx]?.message.map((elem, id) => {
+            const myMessage = messages[idx].message[id].my;
             return (
-              <MessageBlock key={elem + id} elem={elem} myMessage={myMessage} />
+              <MessageBlock key={elem.text + id} elem={elem.text} myMessage={myMessage} />
             );
           })}
         </div>

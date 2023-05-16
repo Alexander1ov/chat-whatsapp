@@ -10,8 +10,6 @@ interface UserProps {
 }
 
 const User: FC<UserProps> = ({ children, active, handleActive }) => {
-  console.log(children);
-
   return (
     <div
       className={`${styles.wrapper} ${active === children && styles.active}`}

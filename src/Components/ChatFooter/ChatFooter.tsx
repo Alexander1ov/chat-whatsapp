@@ -1,7 +1,8 @@
 import React, { FC, useState } from "react";
-import { useAppDispatch } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
 import { postMessage, sendMessages } from "../../store/messages/messages.Slice";
+import BoxGetMessage from "../BoxGetMessage/BoxGetMessage";
 
 import ARROW from "../../img/arrow.png";
 import styles from "./ChatFooter.module.scss";
@@ -11,6 +12,7 @@ interface ChatFooterProps {
 }
 
 const ChatFooter: FC<ChatFooterProps> = ({ active }) => {
+  const { user } = useAppSelector((state) => state.chat);
   const [textMessages, setTextValues] = useState("");
 
   const dispatch = useAppDispatch();
@@ -19,17 +21,19 @@ const ChatFooter: FC<ChatFooterProps> = ({ active }) => {
     e.preventDefault();
     if (!active || !textMessages) return;
     dispatch(postMessage([active, textMessages]));
+    dispatch(
+      sendMessages({
+        idInstance: user.IdInstance,
+        apiTokenInstance: user.ApiTokenInstance,
+        chatId: active + "@c.us",
+        message: textMessages,
+      })
+    );
     setTextValues("");
-
-    // dispatch(
-    //   sendMessages({
-    //     chatId: "79159985744@c.us",
-    //     message: "I use Green-API to send this message to you!",
-    //   })
-    // );
   };
   return (
     <div className={styles.sendMessage}>
+      <BoxGetMessage user={user} />
       <form onSubmit={sendMessage}>
         <input
           type="text"

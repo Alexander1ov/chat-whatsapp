@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
 import { addChat } from "../../store/chatSlice/chatSlice";
-import { activeChat } from "../../store/messages/messages.Slice";
+import { activeChat } from "../../store/messagesSlice/messages.Slice";
 import Header from "../Header/Header";
 import BoxNewChat from "../BoxNewChat/BoxNewChat";
 import MyButton from "../UI/MyButton/MyButton";
@@ -17,12 +17,9 @@ const Users: FC = () => {
   const [active, setActive] = useState("");
 
   const dispatch = useAppDispatch();
-  const handleNewChat = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const handleNewChat = () => {
     dispatch(addChat());
   };
-  const text = !newChat ? "Создать чат" : "Отмена";
 
   const handleActive = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setActive(e.currentTarget.innerText);
@@ -38,15 +35,15 @@ const Users: FC = () => {
         <div className={styles.newChat}>
           {newChat && <BoxNewChat />}
           <MyButton className={styles.button} onclick={handleNewChat}>
-            {text}
+            {newChat ? "Отмена" : "Создать чат"}
           </MyButton>
           <div className={styles.contacts}>
-            {messages.map((elem) => (
+            {messages.map((elem, id) => (
               <User
-                key={elem.user}
+                key={id}
                 active={active}
                 handleActive={handleActive}
-                children={elem.user}
+                user={elem.user}
               />
             ))}
           </div>

@@ -10,7 +10,6 @@ import styles from "./Chat.module.scss";
 
 const Chat = () => {
   const { active } = useAppSelector((state) => state.messages);
-
   return (
     <section className={styles.section}>
       <Header>

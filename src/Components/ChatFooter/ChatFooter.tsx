@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
-import { postMessage, sendMessages } from "../../store/messages/messages.Slice";
+import { postMessage, sendMessages } from "../../store/messagesSlice/messages.Slice";
 import BoxGetMessage from "../BoxGetMessage/BoxGetMessage";
 
 import ARROW from "../../img/arrow.png";
@@ -14,7 +14,6 @@ interface ChatFooterProps {
 const ChatFooter: FC<ChatFooterProps> = ({ active }) => {
   const { user } = useAppSelector((state) => state.chat);
   const [textMessages, setTextValues] = useState("");
-
   const dispatch = useAppDispatch();
 
   const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {

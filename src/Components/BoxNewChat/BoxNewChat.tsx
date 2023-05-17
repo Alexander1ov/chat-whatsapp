@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAppDispatch } from "../../hooks/hooks";
 
 import { addChat } from "../../store/chatSlice/chatSlice";
-import { messagesChat } from "../../store/messages/messages.Slice";
+import { messagesChat } from "../../store/messagesSlice/messages.Slice";
 import MyButton from "../UI/MyButton/MyButton";
 
 import styles from "./BoxNewChat.module.scss";
@@ -14,9 +14,7 @@ const BoxNewChat = () => {
     e.preventDefault();
     dispatch(messagesChat(tel));
     dispatch(addChat());
-    setTel("");
   };
-
   return (
     <div className={styles.newChat}>
       <div className={styles.content}>

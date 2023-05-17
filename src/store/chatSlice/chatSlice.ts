@@ -6,7 +6,6 @@ const initialState: ChatState = {
   user: { IdInstance: "", ApiTokenInstance: "" },
   entrance: true,
   newChat: false,
-  contacts: [],
   loading: false,
   error: null,
 };
@@ -28,11 +27,8 @@ const chatSlice = createSlice({
     addChat(state) {
       state.newChat = !state.newChat;
     },
-    loginToChat(state, action: PayloadAction<string>) {
-      state.contacts.push(action.payload);
-    },
   },
 });
 
-export const { handleEntrance, addChat, loginToChat } = chatSlice.actions;
+export const { handleEntrance, addChat } = chatSlice.actions;
 export default chatSlice.reducer;

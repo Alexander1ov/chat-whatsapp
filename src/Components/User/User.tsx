@@ -4,19 +4,19 @@ import AVATAR from "../../img/avatar.png";
 import styles from "./User.module.scss";
 
 interface UserProps {
-  children: string;
+  user: string;
   active: string;
   handleActive: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-const User: FC<UserProps> = ({ children, active, handleActive }) => {
+const User: FC<UserProps> = ({ user, active, handleActive }) => {
   return (
     <div
-      className={`${styles.wrapper} ${active === children && styles.active}`}
+      className={`${styles.wrapper} ${active === user && styles.active}`}
       onClick={handleActive}
     >
       <img src={AVATAR} alt="avatar" />
-      <p> {children}</p>
+      <p> {user}</p>
     </div>
   );
 };

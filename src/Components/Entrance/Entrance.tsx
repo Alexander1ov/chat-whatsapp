@@ -12,8 +12,6 @@ const Entrance = () => {
   const handleEntry = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(handleEntrance(user));
-
-    setUser({ IdInstance: "", ApiTokenInstance: "" });
   };
   return (
     <section className={styles.entrance}>

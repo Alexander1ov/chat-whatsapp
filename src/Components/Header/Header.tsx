@@ -3,7 +3,6 @@ import React, { FC, ReactNode } from "react";
 import styles from "./Header.module.scss";
 
 interface HeaderProps {
-  className?: string;
   children: ReactNode;
 }
 

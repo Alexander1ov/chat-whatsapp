@@ -1,19 +1,7 @@
-import {
-  createSlice,
-  PayloadAction,
-  createAsyncThunk,
-  AnyAction,
-} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction, createAsyncThunk, AnyAction} from "@reduxjs/toolkit";
 import axios from "axios";
 
-import {
-  Act,
-  ActTypeDequeueMessages,
-  DequeueMessages,
-  GetMessages,
-  Messages,
-  MessagesState,
-} from "./messagesSliceTypes";
+import {Act, ActTypeDequeueMessages, DequeueMessages, GetMessages, Messages, MessagesState} from "./messagesSliceTypes";
 import { BASE_URL } from "../../utils/constants";
 
 export const sendMessages = createAsyncThunk<
@@ -26,8 +14,6 @@ export const sendMessages = createAsyncThunk<
       `${BASE_URL}/waInstance${payload.idInstance}/SendMessage/${payload.apiTokenInstance}`,
       { chatId: payload.chatId, message: payload.message }
     );
-    console.log(response.data);
-
     return response.data;
   } catch (e) {
     return rejectWithValue("Failed to send message");
@@ -58,8 +44,6 @@ export const dequeueMessages = createAsyncThunk<
     const response = await axios.delete(
       `${BASE_URL}/waInstance${payload.idInstance}/deleteNotification/${payload.apiTokenInstance}/${payload.receiptId}`
     );
-    console.log(response.data);
-
     return response.data;
   } catch (e) {
     return rejectWithValue("Failed to clear message queue");
@@ -151,6 +135,7 @@ const messagesSlice = createSlice({
           state.lastMessage.state = false;
         }
       })
+      
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.error = action.payload;
         state.loading = false;
